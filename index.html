@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; justify-items: center; align-items: center;">
+        <h2>Validación de teléfono mediante a expresiones regulares</h2>
+        <span style="color: red; font-weight: 600;" id="error-message" hidden>Número inválido o formato no requerido.</span>
+        <input id="numcomprobation"
+        type="number" name="movil" class="form-control" placeholder="Min. 9 dígitos">
+        <button style="margin-top: 2rem;" type="submit" name="submitbtn"  id="submitbtn"  onclick="verificarTel()">Submit</button>
+    </div>
+</body>
+</html>
+<script>
+    function verificarTel() {
+        var idTel = document.getElementById("numcomprobation").value;
+        var patt = /^(6|7)\d{2,3}((\s)?\d{3}){2}$/;
+        
+        if (patt.test(idTel)) {
+                location.reload();
+        } else {
+            document.getElementById("error-message").style.display = "block";
+            return false;
+        }        
+    }
+</script>
